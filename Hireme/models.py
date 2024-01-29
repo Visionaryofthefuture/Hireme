@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 class User(models.Model):
     username = models.CharField(default = '', max_length = 255)
     email = models.EmailField(default = "", null = False, blank = False)
-    resume = models.FileField(default = "", upload_to="media")
+    resume = models.FileField(default = None, upload_to="media")
 
 
 class Employer(User):
