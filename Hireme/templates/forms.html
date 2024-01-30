@@ -9,7 +9,17 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-    
+        
+        <form method = "POST" action = "{%url 'login' %}">
+            {% csrf_token %}
+
+            <input type = "text" name = "username" required>
+
+            <button type = "submit">Login </button>
+
+
+
+        </form>
         <script src="" async defer></script>
     </body>
 </html>
