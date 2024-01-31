@@ -15,4 +15,7 @@ class User(models.Model):
 
 class Employer(User):
     company_name = models.CharField(default = '', max_length = 23)
+    jobposition = models.CharField(default = '', max_length= 20)
 
+class Seeker(User):
+    resume = models.FileField(default= None, upload_to="media/",validators=[ FileExtensionValidator(allowed_extensions=['pdf', 'csv'])] )

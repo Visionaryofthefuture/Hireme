@@ -6,7 +6,7 @@ from django.contrib.auth import login,logout
 # Create your views here.
 
 def homepage(request):
-    return HttpResponse("<h1> Hello Homepage </h1>")
+    return render(request, "aboutus.html")
 
 def login(request):
     print(request.POST.get("username"))
