@@ -1,7 +1,8 @@
 from django import forms
+from .models import Employer
 
-class Employerform(forms.Form):
-    name = forms.CharField(max_length= 25)
-    email = forms.EmailField()
-    company = forms.CharField()
+class Employerlogin(forms.ModelForm):
+    class Meta:
+        models = Employer
+        fields =['Name', 'CompanyName', 'Job Position', 'Email', 'Password']
     
