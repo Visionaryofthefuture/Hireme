@@ -5,6 +5,7 @@ from django.contrib.auth import login,logout
 
 # Create your views here.
 
+
 def homepage(request):
     return render(request, "aboutus.html")
 
