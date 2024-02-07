@@ -1,0 +1,38 @@
+
+{%extends 'user/base.html'%}
+
+{%load static %} 
+
+
+{%block title%}
+        <title>Webpage Design</title>
+{%endblock%}
+
+{%block stylesheet%}
+        <link rel="stylesheet" href= '{% static "/style.css" %}'>
+{% endblock %}
+
+        
+
+        {%block content%}
+        </div> 
+        <div class="content">
+            <h1>Web Design & <br><span>Development</span> <br>Course</h1>
+            <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
+                expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
+                <br> a quae totam ipsa illum minus laudantium?</p>
+
+                {%if user.is_authenticated%}
+                <button class="cn" ><a href="{% url 'logout' %}">LOGOUT</a></button>
+                {% else%}
+
+                <button class="cn" ><a href="{% url 'login' %}">LOGIN</a></button>
+                <button class="cn" ><a href="{% url 'register' %}">REGISTER    </a></button>
+
+                {% endif %}
+                   
+        </div>
+       
+    </div>
+
+{%endblock%}
