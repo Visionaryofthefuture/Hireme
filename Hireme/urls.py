@@ -12,6 +12,7 @@ urlpatterns = [
     path('login/', views.login_user, name = "login"),
     path('logout/', views.logout_user, name = "logout"),
     path('register/', views.register_user, name = "register"),
+    path("employee/", views.showjobs, name = "employee"),
 ]
 if(settings.DEBUG):
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

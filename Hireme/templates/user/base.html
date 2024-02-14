@@ -6,6 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
         {%block title%}
         <title></title>
         {%endblock%}
@@ -29,6 +30,7 @@
 
           {%endfor%}
         {%endif%}
+
         <div class="main">
       
         
@@ -39,10 +41,26 @@
 
             <div class="menu">
                 <ul>
+                    {% if user.is_authenticated%}
+                    <li><a href="{% url 'employee'%}">HOME</a></li>
+
+
+                    {%else%}
+
                     <li><a href="{% url 'frontpage'%}">HOME</a></li>
+                    {% endif%}
+
                     <li><a href="#">ABOUT</a></li>
+               
                     <li><a href="#">SERVICE</a></li>
-                    <li><a href="#">DESIGN</a></li>
+                    {%if user.is_authenticated%}
+                    <li><a href="{% url 'logout'%}">LOGOUT</a></li>
+
+                    {% else %}
+                    <li><a href="https://www.google.com">ABOUT</a></li>
+
+                    {% endif%}
+
                     <li><a href="#">CONTACT</a></li>
                 </ul>
             </div>
