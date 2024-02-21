@@ -1,0 +1,33 @@
+{% extends 'user/base.html'%}
+
+{% block content%}
+
+{% if userprofile.is_recruiter %}
+
+<h1>{{userprofile.user}} is a Recruiter</h1>
+<div class="container mt-4">
+    <div class="row">
+        {% for job in request.user.jobs.all %}
+          <div class="col-lg-4 col-md-6 mb-4">
+          <br></br>
+            <div class="card" style="width: 18rem;">
+              <img src="{{ job.logo.url }}" class="card-img-top" alt="Logo" width = "200px" height = "200px">
+              <div class="card-body">
+                <h5 class="card-title">{{ job.role }}</h5>
+                <p class="card-text">{{ job.short_desc }}</p>
+                <P class ="card-text"> {{job.created_at}}</p>
+                <a href="#" class="btn btn-primary">VIEW</a>
+              </div>
+            </div>
+            <br></br>
+            
+          </div>
+        {% endfor %}
+      
+    </div>
+  </div>
+
+{% else%}
+<h1> {{userprofile.user}}Job Seeker  </h1>
+{% endif%}
+{% endblock%}

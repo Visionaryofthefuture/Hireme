@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         {%block title%}
-        <title></title>
+        <title>Hireme-Website</title>
         {%endblock%}
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,52 +31,55 @@
           {%endfor%}
         {%endif%}
 
-        <div class="main">
+        <div class="banner">
       
-        
         <div class="navbar">
             <div class="icon">
-                <h2 class="logo">HireMe</h2>
+               <img src = "{% static "/logo.png"%}" class = "logo" draggable = "false" alt = "logoofcompany" href = "{%url 'employee'%}">
             </div>
 
-            <div class="menu">
+            
                 <ul>
                     {% if user.is_authenticated%}
-                    <li><a href="{% url 'employee'%}">HOME</a></li>
+                    <li><a href="{% url 'employee'%}">Home</a></li>
 
 
                     {%else%}
 
-                    <li><a href="{% url 'frontpage'%}">HOME</a></li>
+                    <li><a href="{% url 'frontpage'%}">Home</a></li>
                     {% endif%}
 
-                    <li><a href="#">ABOUT</a></li>
-               
-                    <li><a href="#">SERVICE</a></li>
+                    <li><a href="#">About</a></li>
                     {%if user.is_authenticated%}
-                    <li><a href="{% url 'logout'%}">LOGOUT</a></li>
+                    <li><a href="{% url 'dashboard'%}">Dashboard</a></li>
+
+                    {%else %}
+                    <li><a href="#">Services</a></li>
+
+                    {% endif%}
+                    {%if user.is_authenticated%}
+                    <li><a href="{% url 'logout'%}">Logout</a></li>
 
                     {% else %}
-                    <li><a href="https://www.google.com">ABOUT</a></li>
+                    <li><a href="https://www.google.com">Contact</a></li>
 
                     {% endif%}
+                    <li><a href="#">Search</a></li>
 
-                    <li><a href="#">CONTACT</a></li>
+
+                    
                 </ul>
-            </div>
 
-          <div class="search">
-            {% if user.is_authenticated%}
-            <input class="srch" type="search" name="" placeholder="">
-            <a href="#  "> <button class="btn">Search</button></a>
-            {% endif%}
-        </div>
+            </div>
+            
+
+          
     
             {%block content%}
         {% endblock %}
-
+            </div>
         {%block script%}
-        <script src="" async defer></script>
+        
         {% endblock %}
     </body>
 </html>

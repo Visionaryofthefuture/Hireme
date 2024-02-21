@@ -5,34 +5,26 @@
 
 
 {%block title%}
-        <title>Webpage Design</title>
+        <title>Hireme</title>
 {%endblock%}
 
-{%block stylesheet%}
-        <link rel="stylesheet" href= '{% static "/style.css" %}'>
-{% endblock %}
+
 
         
 
         {%block content%}
-        </div> 
         <div class="content">
-            <h1>Web Design & <br><span>Development</span> <br>Course</h1>
-            <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
-                expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
-                <br> a quae totam ipsa illum minus laudantium?</p>
+                <h1>HIRE ME</h1>
+                <p>Welcome to HireMe, where academia meets opportunity, seamlessly connecting professors and faculty with leading institutions. <br>Join us now!</p>
 
-                {%if user.is_authenticated%}
-                <button class="cn" ><a href="{% url 'logout' %}">LOGOUT</a></button>
-                {% else%}
-
-                <button class="cn" ><a href="{% url 'login' %}">LOGIN</a></button>
-                <button class="cn" ><a href="{% url 'register' %}">REGISTER    </a></button>
-
-                {% endif %}
+                
+                <div>
+                <button type = "button" ><span></span><a href="{% url 'login' %}">LOGIN</a></button>
+                <button type = "bubtton" ><span></span><a href="{% url 'register' %}">REGISTER    </a></button>
+                </div>
+      
                    
         </div>
        
-    </div>
 
 {%endblock%}
