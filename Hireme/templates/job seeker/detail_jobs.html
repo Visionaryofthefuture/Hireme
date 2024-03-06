@@ -1,7 +1,44 @@
-{% extends 'base.html'%}
+{% extends 'user/base.html' %}
 
+{% block stylesheet %}
+<style>
+    .image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+    }
 
-{% block content%}
-<h1> {{job.role}} </h1>
+    .heading
+    {
+        text-align : center;
+        color : white;
+        margin : 10px ;
+        padding:  10 px;
+    }
 
-{% endblock%}
+    #location {
+        font-size: 20px;
+    }
+    
+    .applybutton
+    {
+        text-align:center;
+        padding: 30px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class = "heading">{{ job.role }}</h1>
+<div class="image">
+    <img src="{{ job.logo.url }}" width="200" height="200" />
+</div>
+<p class = "heading" id = "location"> Long Description : {{job.long_desc}}</p>
+
+<p class = "heading" id = "location"> Location : {{job.Location}}</p>
+<div class ="applybutton">
+<a href="{% url 'apply_for_job' job.id %}" class="btn btn-success">Apply</a>
+</div>
+{% endblock %}

@@ -2,19 +2,19 @@
 
 {% block content%}
 
-<h1 >  Add Job </h1>
+<h1 > Application Form </h1>
 
 <div class="overall">
     <div class="container center-container">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Add Job Form</h5>
-          <form method = "POST"  enctype="multipart/form-data" action = "{%url 'addjob' %}">
-              {% csrf_token %}
+          <h5 class="card-title">Apply for Job</h5>
+          <form method="POST" action="{% url 'apply_for_job' job.id %}">
+            {% csrf_token %}
               {{form.as_p}}
               <br>
               <button class = "btn btn-secondary" type = "submit">
-                  Add job
+                  Submit
               </button>
           
           </form>

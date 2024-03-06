@@ -27,7 +27,32 @@
     </div>
   </div>
 
-{% else%}
-<h1> {{userprofile.user}}Job Seeker  </h1>
-{% endif%}
-{% endblock%}
+{% else %}
+<h1>{{ userprofile.user }} - Job Seeker</h1>
+<h2 class="subtitle">Applications</h2>
+
+<div class="container mt-4">
+    <div class="row">
+        {% for application in request.user.applications.all %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <br></br>
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ application.job.logo.url }}" class="card-img-top" alt="Logo" width="200px" height="200px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ application.job.role }}</h5>
+                        <p class="card-text">{{ application.job.short_desc }}</p>
+                        <P class="card-text">{{ application.job.created_at }}</p>
+                        <a href="{% url 'apply_for_job' application.job.id %}" class="btn btn-primary">VIEW</a>
+                    </div>
+                </div>
+                <br></br>
+            </div>
+       
+    </div>
+</div>
+
+{% empty %}
+    <p>You haven't applied yet.</p>
+ {% endfor %}
+{% endif %}
+{% endblock %}

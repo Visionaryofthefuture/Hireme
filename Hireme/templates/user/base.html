@@ -49,7 +49,11 @@
                     <li><a href="{% url 'frontpage'%}">Home</a></li>
                     {% endif%}
 
+                    {% if user.is_authenticated%}
+                    {%else%}
                     <li><a href="#">About</a></li>
+                    {%endif%}
+                    
                     {%if user.is_authenticated%}
                     <li><a href="{% url 'dashboard'%}">Dashboard</a></li>
 
@@ -58,13 +62,20 @@
 
                     {% endif%}
                     {%if user.is_authenticated%}
-                    <li><a href="{% url 'logout'%}">Logout</a></li>
+                   
 
                     {% else %}
                     <li><a href="https://www.google.com">Contact</a></li>
 
                     {% endif%}
+
+                    {%if user.userprofile.is_seeker%}
                     <li><a href="#">Search</a></li>
+                    {%else%}
+                    <li><a href="{% url  'addjob' %}">Add Job </a></li>
+
+                    {%endif%}
+                    <li><a href="{% url 'logout'%}">Logout</a></li>
 
 
                     

@@ -13,7 +13,7 @@
                 <h5 class="card-title">{{ job.role }}</h5>
                 <p class="card-text">{{ job.short_desc }}</p>
                 <P class ="card-text"> {{job.created_at}}</p>
-                <a href="#" class="btn btn-primary">VIEW</a>
+                <a href="{% url 'detailedjob' job.id%}" class="btn btn-primary">VIEW</a>
               </div>
             </div>
             <br></br>

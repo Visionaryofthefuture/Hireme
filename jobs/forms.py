@@ -1,19 +1,12 @@
-from . models import Jobs
+from . models import Jobs, Application
 from django import forms
 
 class AddjobForm(forms.ModelForm):
     class Meta:
         model = Jobs
-        fields = ['role', 'short_desc','long_desc', 'company_name']
-        
+        fields = ['role', 'short_desc','long_desc', 'company_name', 'logo', 'category', 'Location']
 
-
-        ''' role  = models.CharField(max_length = 25)
-    recruiter = models.ForeignKey(User, related_name = 'jobs', on_delete = models.CASCADE)
-    created_at = models.DateField(null = False, blank = False)
-    company_name = models.CharField(default = "random ", max_length = 50)
-    logo = models.ImageField(default = None,upload_to="companylogos", null = False, validators=[FileExtensionValidator (allowed_extensions=['png', 'jpg', 'jpeg'])])
-    category = models.CharField(default = "information technology", max_length = 50)
-    Location = models.CharField(default = " ",max_length = 100)
-    short_desc = models.TextField(verbose_name='Short Description', null = False, blank = False, max_length = 255)
-    long_desc ='''
+class ApplicationForm(forms.ModelForm):
+    class Meta:
+        model = Application
+        fields = ['content', 'experience']

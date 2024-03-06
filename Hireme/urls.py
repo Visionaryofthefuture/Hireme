@@ -17,7 +17,8 @@ urlpatterns = [
     path("employee/", views.detailed_job, name = "employee"), #  shows all the jobs 
     path('addjob/', add_job, name = "addjob"), # form for adding jobs by recruiter
     path('dashboard/', dashboard, name = "dashboard"), #dashboard
-    path('detailedjob/', job_detail, name = "detailedjob"),
+    path('detailedjob/<int:job_id>', job_detail, name = "detailedjob"),
+    path('<int:job_id>/apply_for_job', apply_for_job, name = "apply_for_job")
 ]
 
 if(settings.DEBUG):
